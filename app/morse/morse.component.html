@@ -1,0 +1,32 @@
+
+<h1>Morse Code</h1>
+
+<p>
+  This encryption system maps an input letter to an output symbol consisting of '.' or '-' characters.
+</p>
+
+<div class="play-container">
+  <p>
+    <strong>Input message: </strong>
+    <input type="text" [(ngModel)]='input_message'>
+  </p>
+</div>
+
+<div class="explanation">
+  <p><strong>Letter and Code Pairings</strong></p><br>
+  <p *ngFor="let char of letters; let i=index">
+    <span *ngIf='(isLastChar(i))' id="isLast">
+      <pre>{{ getExplanationMsg(char) }}</pre>
+    </span>
+    <span *ngIf='!(isLastChar(i))' id="notLast">
+      <pre>{{ getExplanationMsg(char) }}</pre>
+    </span>
+  </p>
+</div>
+
+<div class="play-container">
+  <p>
+    <strong>Output message: </strong>
+    {{ encipher(input_message) }}
+  </p>
+</div>
